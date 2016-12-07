@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8"?>
+<definitions xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:s0="http://tempuri.org/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" targetNamespace="http://tempuri.org/" xmlns="http://schemas.xmlsoap.org/wsdl/">
+  <types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/">
+      <s:element name="Call-MMVUOU">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="INPUT-VAL" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Call-MMVUOUResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Call-MMVUOUResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Call-MVBWSP">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="INPUT-VAL" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Call-MVBWSPResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Call-MVBWSPResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Call-MVBNCI">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="INPUT-VAL" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Call-MVBNCIResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Call-MVBNCIResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+  </types>
+  <message name="Call-MMVUOUSoapIn">
+    <part name="parameters" element="s0:Call-MMVUOU" />
+  </message>
+  <message name="Call-MMVUOUSoapOut">
+    <part name="parameters" element="s0:Call-MMVUOUResponse" />
+  </message>
+  <message name="Call-MVBWSPSoapIn">
+    <part name="parameters" element="s0:Call-MVBWSP" />
+  </message>
+  <message name="Call-MVBWSPSoapOut">
+    <part name="parameters" element="s0:Call-MVBWSPResponse" />
+  </message>
+  <message name="Call-MVBNCISoapIn">
+    <part name="parameters" element="s0:Call-MVBNCI" />
+  </message>
+  <message name="Call-MVBNCISoapOut">
+    <part name="parameters" element="s0:Call-MVBNCIResponse" />
+  </message>
+  <portType name="DOLWebServiceSoap">
+    <operation name="Call-MMVUOU">
+      <input message="s0:Call-MMVUOUSoapIn" />
+      <output message="s0:Call-MMVUOUSoapOut" />
+    </operation>
+    <operation name="Call-MVBWSP">
+      <input message="s0:Call-MVBWSPSoapIn" />
+      <output message="s0:Call-MVBWSPSoapOut" />
+    </operation>
+    <operation name="Call-MVBNCI">
+      <input message="s0:Call-MVBNCISoapIn" />
+      <output message="s0:Call-MVBNCISoapOut" />
+    </operation>
+  </portType>
+  <binding name="DOLWebServiceSoap" type="s0:DOLWebServiceSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" style="document" />
+    <operation name="Call-MMVUOU">
+      <soap:operation soapAction="http://tempuri.org/Call-MMVUOU" style="document" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="Call-MVBWSP">
+      <soap:operation soapAction="http://tempuri.org/Call-MVBWSP" style="document" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="Call-MVBNCI">
+      <soap:operation soapAction="http://tempuri.org/Call-MVBNCI" style="document" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+  </binding>
+  <service name="DOLWebService">
+    <port name="DOLWebServiceSoap" binding="s0:DOLWebServiceSoap">
+      <soap:address location="http://198.7.87.19/dolwebservice.asmx" />
+    </port>
+  </service>
+</definitions>

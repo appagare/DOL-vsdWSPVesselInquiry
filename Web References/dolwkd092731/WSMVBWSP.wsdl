@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<definitions xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:s0="http://tempuri.org/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" targetNamespace="http://tempuri.org/" xmlns="http://schemas.xmlsoap.org/wsdl/">
+  <types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/">
+      <s:element name="Call-MVBWSP">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="INPUT-VAL" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Call-MVBWSPResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Call-MVBWSPResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+  </types>
+  <message name="Call-MVBWSPSoapIn">
+    <part name="parameters" element="s0:Call-MVBWSP" />
+  </message>
+  <message name="Call-MVBWSPSoapOut">
+    <part name="parameters" element="s0:Call-MVBWSPResponse" />
+  </message>
+  <portType name="WSMVBWSPSoap">
+    <operation name="Call-MVBWSP">
+      <input message="s0:Call-MVBWSPSoapIn" />
+      <output message="s0:Call-MVBWSPSoapOut" />
+    </operation>
+  </portType>
+  <binding name="WSMVBWSPSoap" type="s0:WSMVBWSPSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" style="document" />
+    <operation name="Call-MVBWSP">
+      <soap:operation soapAction="http://tempuri.org/Call-MVBWSP" style="document" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+  </binding>
+  <service name="WSMVBWSP">
+    <port name="WSMVBWSPSoap" binding="s0:WSMVBWSPSoap">
+      <soap:address location="http://dolwkd092731/UARMVBWSP/WSMVBWSP.asmx" />
+    </port>
+  </service>
+</definitions>
